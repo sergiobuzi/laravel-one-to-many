@@ -17,12 +17,12 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        $types = Type :: all();
-        $types -> each(function($type){
-        $project = Project :: factory() -> make();
-        $project -> type() -> associate($type);
+        Project :: factory() -> count(100) -> make() -> each(function($project){
 
-        $project -> save();
+            $type = Type :: inRandomOrder() -> first();
+            $project -> type() -> associate($type);
+
+            $project -> save();
        });
     }
 }

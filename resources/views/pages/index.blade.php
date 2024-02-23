@@ -8,8 +8,9 @@
         @foreach ($projects as $project)
 
             <li>
-                {{$project -> name}}
-                <span>tipo: {{$project -> type -> category}}</span>
+                <div>progetto: {{$project -> name}}</div>
+                <div>tipo: {{$project -> type -> category}}</div>
+                <br>
             </li>
             
         @endforeach
